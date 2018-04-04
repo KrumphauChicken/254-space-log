@@ -3,7 +3,7 @@
 # Use like `./space_log.py -s|-p|-t|-d|-f log_file
 
 from sys import argv
-import fuel
+import fuel, terra
 
 # Opens the log file and grabs the contents.
 try:
