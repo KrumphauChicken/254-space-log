@@ -1,3 +1,6 @@
+# part 3  Print the total number of terraformable planets
+#Tenzin Dorjee
+
 import re
 
 def get_planet_name(content:str) -> float:
