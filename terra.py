@@ -1,5 +1,6 @@
-#Bryan Ho 
-#CPSC 254
+# Bryan Ho 
+# CPSC 254 
+# TuTh 8:00-9:50
 
 import re
 
