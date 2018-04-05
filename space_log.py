@@ -22,7 +22,7 @@ argSwitcher = {
 #	'-p': NAMES OF PLANETS SCANNED
 	'-t': planetNumbers.findPlanets,
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
-    '-f': fuel.get_total_fuel,	# The example.
+        '-f': fuel.get_total_fuel,	# The example.
 }
 
 try:
