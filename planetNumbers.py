@@ -1,3 +1,7 @@
+# Tenzin Dorjee
+# Print the total number of terraformable planets
+
+
 import re
 
 def findPlanets(content):
