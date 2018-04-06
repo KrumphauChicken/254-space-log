@@ -13,7 +13,7 @@ try:
 except IndexError:
 	exit("Missing name of log file.")
 except:
-	exit("Couldn't open file \""+sys.argv[1]+"\".")
+	exit("Couldn't open file \""+argv[1]+"\".")
 
 # Uncomment, and add your work in the appropriate spots.
 argSwitcher = {
