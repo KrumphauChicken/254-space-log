@@ -4,6 +4,7 @@
 
 from sys import argv
 import fuel
+import planetNumbers
 
 # Opens the log file and grabs the contents.
 try:
@@ -19,9 +20,9 @@ except:
 argSwitcher = {
 #	'-s': NAMES OF SYSTEMS VISITED
 #	'-p': NAMES OF PLANETS SCANNED
-#	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
+	'-t': planetNumbers.findPlanets,
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
-	'-f': fuel.get_total_fuel,	# The example.
+        '-f': fuel.get_total_fuel,	# The example.
 }
 
 try:
