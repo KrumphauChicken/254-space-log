@@ -5,10 +5,11 @@
 import re
 
 def get_total_terraformable(content:str) -> int:
-	pattern = re.compile("\"BodyName\":(\"(.*?)\")")
+	pattern = re.compile("\"TerraformState\":(\"(.*?)\")")
 	result = pattern.findall(content)
 	total = 0
 	if result:
 		for r in result:
-			total+=1
+			if r[1] == 'Terraformable':
+				total+=1
 	return total
