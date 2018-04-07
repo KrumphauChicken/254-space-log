@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 #
-# Use like `./space_log.py -s|-p|-t|-d|-f log_file
+# Use like `./space_log.py elite.log -s|-p|-t|-d|-f 
 
 from sys import argv
 import fuel
-
+import terraformable
 # Opens the log file and grabs the contents.
 try:
 	fh = open(argv[1], 'r')
@@ -19,7 +19,7 @@ except:
 argSwitcher = {
 #	'-s': NAMES OF SYSTEMS VISITED
 #	'-p': NAMES OF PLANETS SCANNED
-#	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
+	'-t': terraformable.get_terraformable_planets,
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
 	'-f': fuel.get_total_fuel,	# The example.
 }
