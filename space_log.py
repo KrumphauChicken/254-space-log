@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 #
-# Use like `./space_log.py -s|-p|-t|-d|-f log_file
+# Use like `./space_log.py elite.log -s|-p|-t|-d|-f 
 
 from sys import argv
 import fuel
+
+import starsystems
+import planets
+import terraformable
 
 # Opens the log file and grabs the contents.
 try:
@@ -17,11 +21,12 @@ except:
 
 # Uncomment, and add your work in the appropriate spots.
 argSwitcher = {
-#	'-s': NAMES OF SYSTEMS VISITED
-#	'-p': NAMES OF PLANETS SCANNED
-#	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
+  
+	'-s': starsystems.get_star_systems,  # NAMES OF STAR SYSTEMS VISITED
+	'-p': planets.names_of_planets,
+  '-t': terraformable.get_terraformable_planets,
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
-	'-f': fuel.get_total_fuel,	# The example.
+  '-f': fuel.get_total_fuel,	# The example.
 }
 
 try:
