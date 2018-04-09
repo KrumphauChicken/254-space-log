@@ -4,7 +4,7 @@
 
 from sys import argv
 import fuel
-
+import LightYears
 # Opens the log file and grabs the contents.
 try:
 	fh = open(argv[1], 'r')
@@ -20,7 +20,7 @@ argSwitcher = {
 #	'-s': NAMES OF SYSTEMS VISITED
 #	'-p': NAMES OF PLANETS SCANNED
 #	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
-#	'-d': TOTAL DISTANCE IN LIGHT YEARS
+	'-d': LightYears.get_total_light_years,
 	'-f': fuel.get_total_fuel,	# The example.
 }
 
