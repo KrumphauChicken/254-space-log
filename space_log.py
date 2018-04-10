@@ -4,6 +4,9 @@
 
 from sys import argv
 import fuel
+import planet_list
+import planets_scanned
+import Question3
 
 # Opens the log file and grabs the contents.
 try:
@@ -17,9 +20,9 @@ except:
 
 # Uncomment, and add your work in the appropriate spots.
 argSwitcher = {
-#	'-s': NAMES OF SYSTEMS VISITED
-#	'-p': NAMES OF PLANETS SCANNED
-#	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
+	'-s': planet_list.Names_of_system_visted,
+	'-p': planets_scanned.scanned_planets,
+	'-t': Question3.is_it_terraformable,
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
 	'-f': fuel.get_total_fuel,	# The example.
 }
@@ -28,7 +31,6 @@ try:
 	func = argSwitcher.get(argv[2], lambda x: "Incorrect search argument.")
 except IndexError:
 	exit("Missing search argument.")
-
 output = func(content)
 if type(output) is list:
 	for l in output:
