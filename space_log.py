@@ -3,9 +3,9 @@
 # Use like `./space_log.py -s|-p|-t|-d|-f log_file
 
 from sys import argv
-import fuel
-from systems import *
-from planets import *
+import spacelog.fuel
+from spacelog.systems import *
+from spacelog.planets import *
 
 # Opens the log file and grabs the contents.
 try:
@@ -23,7 +23,7 @@ argSwitcher = {
 	'-p': get_planet_names,
 	'-t': total_terraformable,
 	'-d': total_jump_distance,
-	'-f': fuel.get_total_fuel,	# The example.
+	'-f': spacelog.fuel.get_total_fuel,	# The example.
 }
 
 try:
