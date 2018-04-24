@@ -1,23 +1,31 @@
-Homework 2:
+Homework 3:
 ===========
 
-Some friends and I play a space sim game called Elite: Dangerous. It features a procedurally-generated, 1:1 simulation of the Milky Way, of which humans of the 34th century have explored only a small part. Fortunately for the player community, which relies on it's own third-party tools to map discoveries, the game outputs very detailed plain-text logs. I recently took my small ship out into the black to explore on my own, and one of the logs for that is included in this homework.
+This branch is a working copy Space Log from homework 2 set up to be installed on a Linux system. I've moved the main executable to bin/, and the supporting files to lib/.
 
-Main requirements
------------------
-Form a group of no more than four people and, together, write a Python program that uses regular expressions to do the following:
-1) Print the names of all of the star systems I visited during this log. ("event":"FSDJump")
-2) Print the names of all of the planets I scanned during this log. ("event":"Scan")
-3) Print the total number of terraformable planets I scanned during this log ("event:"Scan")
-4) Print the total number of light years I traveled during this log. ("event":"FSDJump")
+Requirements summary:
+------------------
+1. Create a VirtualBox virtual machine using Vagrant.
+	- Use the [bento/debian-9](https://app.vagrantup.com/bento/boxes/debian-9) box (or [bento/debian-9.4-i386](https://app.vagrantup.com/bento/boxes/debian-9.4-i386) if you can't virtualize 64-bit). 
+1. *Provision* your virtual machine by writing an inline Bash script inside the Vagrant file that downloads the Space Log program from this branch and installs it.
 
-Secondary requirements
-----------------------
-- Choose *one* person to fork this repository. They will be the group leader, in that their fork will be the one graded. The leader must add all other members as collaborators to their repository (Settings > Collaborators).
-- Each member will create a new branch for their work, and pick one item from the list of main requirements. Write the function definition for your requirement in a new file, and use it in the main file like in the example. When finished *and tested*, merge your work into the master branch.
-	- **That means** no one else in the group should fork this original repo, and *every* group member must have commits visible in the git log. **Do not** simply email, copy/paste, or retype your code into one file, and have the leader make one commit to their repo. **Only the master branch will be graded. Anyone missing from the master branch will not have their work graded.**
-- Every member of the group must complete one of the main requirements. If there are n < 4 members in the group, complete n main requirements in the order given. Extra work (item 4 completed in a 3-person group) will be ignored.
+Submit your completed Vagrantfile via Titanium before 2018-4-29 (Sunday) at midnight.
 
-Example given
--------------
-Print the total amount of hydrogen fuel consumed by jumps during this log.
+Detailed requirements and notes:
+--------------------------------
+- **"How do I use Vagrant?"**
+	- Install Vagrant on your computer, not on the virtual machine that you use for class. Don't go nesting VMs. If you have a Mac, you'll issue your commands, like `vagrant up` from Terminal. If you're using Windows, use PowerShell.
+	- Consult the documentation at [Vagrant's website](https://www.vagrantup.com/docs/). The pages you need to read for this homework are Commands, Vagrantfile, Boxes, and Provisioning.
+	- The default Vagrantfile created when you `vagrant init` is very well commented, and contains examples.
+- **"How do I download this specific branch?"**
+	- `git clone --branch homework3`
+	- This is the same as a regular `git clone` followed by `git checkout homework3`, except you don't have to `cd` in and out of the directory in your Bash script.
+- **"How am I supposed to know which directory to install things in?"**
+	- You can put the `spacelog` executable in `/usr/bin/` or `/usr/local/bin`.
+	- To find out where the library files go, find where Python files are installed normally.
+		- Example: install numpy with `apt install python3-numpy`, and using `dpkg-query` to list the files in the `python3-numpy` package.
+		- Look at the import statements in `spacelog` for another clue.
+- **"How can I test my homework?"**
+	- The first step is to test that your Vagrantfile runs without errors, correctly fetches, starts, and provisions the box.
+	- The second is to test `spacelog`. To grade every submission, I will `vagrant ssh` into your machine, and run `spacelog 254-space-log/elite.log -[something]` to test it, so make sure that works.
+		- (That assumes your provisioning script keeps the cloned repo sitting in the home folder inside the VM, so please do so. Vagrant is about dispensable testing environments; there isn't a need to clean/organize your VM's home folder.)
